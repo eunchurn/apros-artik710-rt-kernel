@@ -1,28 +1,33 @@
 # Linux Kernel for APROS ARTIK710 PREEMPT_RT
 
-## Configuration add
+## 패치만 하는 경우
 
-- PREEMPT_RT configuration adding
-
-```bash
-cp arch/arm64/configs/artik710_raptor_defconfig arch/arm64/configs/artik710_raptor_rt_defconfig
-echo "CONFIG_PREEMPT_RCU=y
-CONFIG_PREEMPT=y
-CONFIG_PREEMPT_RT_BASE=y
-CONFIG_HAVE_PREEMPT_LAZY=y
-CONFIG_PREEMPT_LAZY=y
-# CONFIG_PREEMPT_NONE is not set
-# CONFIG_PREEMPT_VOLUNTARY is not set
-# CONFIG_PREEMPT__LL is not set
-# CONFIG_PREEMPT_RTB is not set
-CONFIG_PREEMPT_RT_FULL=y
-CONFIG_PREEMPT_COUNT=y
-CONFIG_DEBUG_PREEMPT=y
-# CONFIG_PREEMPT_TRACER is not set" >> arch/arm64/configs/artik710_raptor_rt_defconfig
+```
+curl -o- -L https://raw.githubusercontent.com/eunchurn/apros-artik710-rt-kernel/master/imageonly.sh | bash
 ```
 
-- Kernel configuration
+## 패치하고 커널 빌드 하는 경우
+
+## Clone repository with recursive submodule
 
 ```bash
-make ARCH=arm artik530_raptor_rt_defconfig
+git clone --recursive https://github.com/eunchurn/apros-artik710-rt-kernel
+```
+
+or if you already cloned this repo
+
+```bash
+git submodule update --init --recursive
+```
+
+## PREEMP_RT patch and build script
+
+```bash
+./build.sh
+```
+
+## Deployment script
+
+```bash
+./deploy.sh {board_ip_address}
 ```

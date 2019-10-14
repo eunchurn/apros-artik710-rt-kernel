@@ -1,6 +1,8 @@
 #!/bin/bash
 
+wget https://mirrors.edge.kernel.org/pub/linux/kernel/projects/rt/4.4/older/patches-4.4.113-rt128.tar.xz
 cd linux-artik && git checkout A710-OS-18.05.00
+xzcat ../patches-4.4.113-rt128.tar.xz | patch -p1
 cp arch/arm64/configs/artik710_raptor_defconfig arch/arm64/configs/artik710_raptor_rt_defconfig
 echo "CONFIG_PREEMPT_RCU=y
 CONFIG_PREEMPT=y
