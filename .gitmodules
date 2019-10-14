@@ -1,0 +1,3 @@
+[submodule "linux-artik"]
+	path = linux-artik
+	url = https://github.com/eunchurn/linux-artik
