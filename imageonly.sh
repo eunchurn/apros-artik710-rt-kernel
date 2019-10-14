@@ -13,4 +13,5 @@ cp /root/*.dtb /boot
 dd if=/root/modules.img of=/dev/mmcblk0p5
 sync
 rm -rf *
+echo "Reboot board now"
 reboot
