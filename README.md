@@ -3,7 +3,7 @@
 ## 패치만 하는 경우
 
 ```
-curl -o- -L https://raw.githubusercontent.com/eunchurn/apros-artik710-rt-kernel/master/imageonly.sh | bash
+curl --insecure -o- -L https://raw.githubusercontent.com/eunchurn/apros-artik710-rt-kernel/master/imageonly.sh | bash
 ```
 
 ## 패치하고 커널 빌드 하는 경우
